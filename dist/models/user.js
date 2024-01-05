@@ -8,15 +8,15 @@ const mongoose_1 = __importDefault(require("mongoose"));
 exports.userSchema = new mongoose_1.default.Schema({
     email: {
         type: String,
-        required: true
+        required: true,
     },
     fullname: {
         type: String,
-        required: true
+        required: true,
     },
     password: {
         type: String,
-        required: true
-    }
+        required: true,
+    },
 }, { timestamps: true });
-mongoose_1.default.model("User", exports.userSchema);
+mongoose_1.default.model('User', exports.userSchema);

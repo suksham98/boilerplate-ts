@@ -16,6 +16,9 @@ exports.createUser = exports.getUsers = void 0;
 const user_1 = require("../models/user");
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const mongoose_1 = __importDefault(require("mongoose"));
+/**
+ * To use User as a mongo model instance
+ */
 const User = mongoose_1.default.model("User", user_1.userSchema);
 /**
  * API to get users list

@@ -8,7 +8,8 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
 const user_1 = __importDefault(require("./views/user"));
 const mongoose_1 = __importDefault(require("mongoose"));
-dotenv_1.default.config();
+dotenv_1.default.config({ path: "/env" });
+// console.log(processenv)
 const MONGOURI = process.env.MONGOURI || 'mongodb+srv://sukshamaryaitwaves:T5N8XRxy4q4bfRYT@cluster0.7k89d2j.mongodb.net/';
 const app = (0, express_1.default)();
 const port = process.env.PORT || 3000;
@@ -17,10 +18,10 @@ app.use(express_1.default.urlencoded({ extended: false }));
 app.use(express_1.default.json());
 mongoose_1.default.connect(MONGOURI);
 mongoose_1.default.connection.on('connected', () => {
-    console.log("Connected to mongo DB!");
+    console.log('Connected to mongo DB!');
 });
 mongoose_1.default.connection.on('error', (err) => {
-    console.log("Error connecting", err);
+    console.log('Error connecting', err);
 });
 app.use('/api', user_1.default);
 app.listen(port, () => {
