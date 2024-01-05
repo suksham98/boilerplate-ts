@@ -1,29 +1,20 @@
-import express, { Express } from 'express';
-import dotenv from 'dotenv';
-import cors from 'cors';
-import user from './views/user';
-import mongoose from 'mongoose';
+import express, { Express, Request, Response } from 'express';
+import { dbConnect } from './bin/dbConnection';
+import { serverConfig } from './config/dbConfig';
+const router = express.Router();
 
-dotenv.config({path:"/env"});
-// console.log(processenv)
-const MONGOURI =
-  process.env.MONGOURI || 'mongodb+srv://sukshamaryaitwaves:T5N8XRxy4q4bfRYT@cluster0.7k89d2j.mongodb.net/';
+require('dotenv').config();
+
 const app: Express = express();
-const port = process.env.PORT || 3000;
-app.use(cors());
-app.use(express.urlencoded({ extended: false }));
+const port: number | string = process.env.PORT || 3000;
+
+export { express, Request, Response };
+
 app.use(express.json());
 
-mongoose.connect(MONGOURI);
-mongoose.connection.on('connected', () => {
-  console.log('Connected to mongo DB!');
-});
+require('./views/index')(app);
 
-mongoose.connection.on('error', (err: string) => {
-  console.log('Error connecting', err);
-});
-
-app.use('/api', user);
+dbConnect(serverConfig.mongodb.url);
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);

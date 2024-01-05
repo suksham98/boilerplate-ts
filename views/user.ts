@@ -1,10 +1,6 @@
-// import express from "express";
-import express = require('express');
-const router = express.Router();
-import { getUsers, createUser } from '../controllers/user';
+import { getUsersList, createUser } from '../controllers/user';
 
-router.route('/get-users').get(getUsers);
-
-router.route('/signup').post(createUser);
-
-export default router;
+module.exports = (app: any) => {
+  app.route('/api/get-users').get(getUsersList);
+  app.route('/api/signup').post(createUser);
+};

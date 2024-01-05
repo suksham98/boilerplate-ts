@@ -1,5 +1,8 @@
 import mongoose from 'mongoose';
 
+/**
+ * Basic DB model for user
+ */
 export const userSchema = new mongoose.Schema(
   {
     email: {
