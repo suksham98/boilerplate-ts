@@ -2,7 +2,7 @@
 _This is like a demo project for backend in TypeScript. Anyone can further work on the project to expand it. I am just building APIs for demo purpose only. For database, I have used MongoDB Atlas._
 
 
-##### Steps to run the Project:
+#### Steps to run the Project:
 1. First clone the project by using command:
 ```
 git clone https://github.com/suksham98/boilerplate-ts.git
@@ -33,7 +33,7 @@ npx prettier '**/*.ts' --write
 (to use prettier for specific extensions)
 
 
-### Database:
+#### Database:
 I have used MongoDB Atlas for database. You can also create use the same, by folloeing steps:
 1. If you do not have account on MongoDB Atlas, you can [click here](https://www.mongodb.com/cloud/atlas/register) and register.
 2. After creating your account, go to option ```New Project```
